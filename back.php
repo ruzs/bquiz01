@@ -14,8 +14,7 @@
 	<body>
 		<div id="cover" style="display:none; ">
 			<div id="coverr">
-				<a style="position:absolute; right:3px; top:4px; cursor:pointer; z-index:9999;" onclick="cl(&#39;#cover&#39;)">X</a>
-				<div id="cvr" style="position:absolute; width:99%; height:100%; margin:auto; z-index:9898;"></div>
+			<a style="position:absolute; right:3px; top:4px; cursor:pointer; z-index:9999;" onclick="cl('#cover')">X</a>				<div id="cvr" style="position:absolute; width:99%; height:100%; margin:auto; z-index:9898;"></div>
 			</div>
 		</div>
 		<iframe style="display:none;" name="back" id="back"></iframe>
@@ -71,7 +70,15 @@
 							</tr>
 						</tbody>
 					</table>
-					<?php include "./back/title.php" ;?>
+					<?php
+						$do=$_GET['do']??'title';
+						$file="./back/".$do.".php";
+						if(file_exists(($file))){
+							include $file;
+						}else{
+							include "./back/title.php";
+						};
+				  ?>
 				</div>
 				<div id="alt" style="position: absolute; width: 350px; min-height: 100px; word-break:break-all; text-align:justify;  background-color: rgb(255, 255, 204); top: 50px; left: 400px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;"></div>
 				<script>
