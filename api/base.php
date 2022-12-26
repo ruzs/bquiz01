@@ -63,16 +63,43 @@ class DB{
     }
     return $this->pdo->exec($sql);
   }
-  public function sum(){}
-  public function count(){}
-  public function max(){}
-  public function min(){}
-  public function avg(){}
+  public function count(...$arg){return $this->math('count',...$arg);}
+  public function sum($col,...$arg){return $this->math('sum',$col,...$arg);}
+  public function max($col,...$arg){return $this->math('max',$col,...$arg);}
+  public function min($col,...$arg){return $this->math('min',$col,...$arg);}
+  public function avg($col,...$arg){return $this->math('avg',$col,...$arg);}
   private function arrayToSqlArray($array){
     foreach($array as $key =>$value){
       $tmp[]="`$key`='$value'";
     }
     return $tmp;
+  }
+  private function math($math,...$arg){
+    switch($math){
+        case 'count':
+          $sql="select count(*) from $this->table ";
+          if(isset($arg[0])){
+            $con=$arg[0]; 
+          }
+        break;
+        default:
+          $col=$arg[0];
+          if(isset($arg[1])){
+              $con=$arg[1];
+          }
+          $sql="select $math($col) from $this->table ";
+    }
+
+    if(isset($arg[1])){
+        if(is_array($arg[1])){
+            $tmp=$this->arrayToSqlArray($arg[1]);
+            $sql=$sql . " where " .  join(" && ",$tmp);
+        }else{
+            $sql=$sql . $arg[1];
+        }
+    }
+    //echo $sql;
+    return $this->pdo->query($sql)->fetchColumn();
   }
 }
 function dd($array){
@@ -88,25 +115,51 @@ function q($sql){
   echo $sql;
   return $pdo->query($sql)->fetchAll();
 }
-
 $db=new DB('bottom');
 $bot=$db->find(1);
 print_r($bot);
 echo "<hr>";
+
 $db=new DB('bottom');
 $bot=$db->all();
 print_r($bot);
 echo "<hr>";
+
 // $db=new DB('bottom');
 // $bot=$db->del(2);
 // print_r($bot);
 // print_r($db->all());
 // echo "<hr>";
-$row=$db->find(3);
-print_r($row);
 
-$row['bottom']="bbb";
-print_r($row);
-$db->save($row);
+// $row=$db->find(3);
+// print_r($row);
+
+// $row['bottom']="bbb";
+// print_r($row);
+// $db->save($row);
+// echo "<hr>";
+echo $db->count('price');
 echo "<hr>";
+echo $db->sum('price');
+echo "<hr>";
+echo "資料總數為:".$db->count();
+echo "<br>";
+echo "資料加總為:".$db->sum('price');
+echo "<br>";
+echo "價格最大為:".$db->max('price');
+echo "<br>";
+echo "id最小為:".$db->min('id');
+echo "<br>";
+echo "平均價格為:".$db->avg('price');
+echo "<br>";
+echo "<br>";
+/* $array['a'];
+$array['c'];
+$a=$array['a'];
+$c=$array['c']; */
+
+//解構
+/* extract($array);
+echo '$a='.$a;
+echo '$c='.$c; */
 ?>
