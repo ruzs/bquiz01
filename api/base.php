@@ -115,15 +115,17 @@ function q($sql){
   echo $sql;
   return $pdo->query($sql)->fetchAll();
 }
-$db=new DB('bottom');
-$bot=$db->find(1);
-print_r($bot);
-echo "<hr>";
+$Bottom=new DB('bottom');
 
-$db=new DB('bottom');
-$bot=$db->all();
-print_r($bot);
-echo "<hr>";
+// $db=new DB('bottom');
+// $bot=$db->find(1);
+// print_r($bot);
+// echo "<hr>";
+
+// $db=new DB('bottom');
+// $bot=$db->all();
+// print_r($bot);
+// echo "<hr>";
 
 // $db=new DB('bottom');
 // $bot=$db->del(2);
@@ -138,10 +140,12 @@ echo "<hr>";
 // print_r($row);
 // $db->save($row);
 // echo "<hr>";
+/*
 echo $db->count('price');
 echo "<hr>";
 echo $db->sum('price');
 echo "<hr>";
+
 echo "資料總數為:".$db->count();
 echo "<br>";
 echo "資料加總為:".$db->sum('price');
@@ -153,6 +157,7 @@ echo "<br>";
 echo "平均價格為:".$db->avg('price');
 echo "<br>";
 echo "<br>";
+*/
 /* $array['a'];
 $array['c'];
 $a=$array['a'];
