@@ -116,11 +116,11 @@ function q($sql){
   return $pdo->query($sql)->fetchAll();
 }
 $Bottom=new DB('bottom');
-
 $Title=new DB('title');
 $Ad=new DB('ad');
 $Mvim=new DB('mvim');
 $Image=new DB('image');
+$News=new DB('news');
 
 // $db=new DB('bottom');
 // $bot=$db->find(1);
