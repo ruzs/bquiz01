@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2022-12-29 09:14:08
+-- 產生時間： 2022-12-29 09:30:31
 -- 伺服器版本： 10.4.24-MariaDB
 -- PHP 版本： 8.1.6
 
@@ -53,6 +53,13 @@ CREATE TABLE `admin` (
   `acc` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `pw` text COLLATE utf8mb4_unicode_520_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- 傾印資料表的資料 `admin`
+--
+
+INSERT INTO `admin` (`id`, `acc`, `pw`) VALUES
+(1, 'admin', '1234');
 
 -- --------------------------------------------------------
 
@@ -273,7 +280,7 @@ ALTER TABLE `ad`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `bottom`
