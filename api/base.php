@@ -119,6 +119,7 @@ $Bottom=new DB('bottom');
 
 $Title=new DB('title');
 $Ad=new DB('ad');
+$Mvim=new DB('mvim');
 
 // $db=new DB('bottom');
 // $bot=$db->find(1);
