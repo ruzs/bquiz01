@@ -118,6 +118,7 @@ function q($sql){
 $Bottom=new DB('bottom');
 
 $Title=new DB('title');
+$Ad=new DB('ad');
 
 // $db=new DB('bottom');
 // $bot=$db->find(1);
