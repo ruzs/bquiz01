@@ -23,7 +23,7 @@ class DB{
   }
 
   public function all(...$arg){
-    $sql="select * from $this->table ";
+    $sql="select * from $this->table";
     if(isset($arg[0])){
       if(is_array($arg[0])){
         $tmp=$this->arrayToSqlArray($arg[0]);
@@ -107,8 +107,8 @@ function dd($array){
   print_r($array);
   echo "</pre>";
 }
-function to($location){
-  header("location:$location");
+function to($url){
+  header("location:".$url);
 }
 function q($sql){
   global $pdo;
@@ -116,6 +116,8 @@ function q($sql){
   return $pdo->query($sql)->fetchAll();
 }
 $Bottom=new DB('bottom');
+
+$Title=new DB('title');
 
 // $db=new DB('bottom');
 // $bot=$db->find(1);

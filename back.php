@@ -7,7 +7,6 @@ include "./api/base.php";
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 		<title>卓越科技大學校園資訊系統</title>
 		<link href="./css/css.css" rel="stylesheet" type="text/css">
 		<script src="./js/jquery-1.9.1.min.js"></script>
@@ -17,13 +16,13 @@ include "./api/base.php";
 	<body>
 		<div id="cover" style="display:none; ">
 			<div id="coverr">
-			<a style="position:absolute; right:3px; top:4px; cursor:pointer; z-index:9999;" onclick="cl('#cover')">X</a>				<div id="cvr" style="position:absolute; width:99%; height:100%; margin:auto; z-index:9898;"></div>
+			<a style="position:absolute; right:3px; top:4px; cursor:pointer; z-index:9999;" onclick="cl('#cover')">X</a>
+			<div id="cvr" style="position:absolute; width:99%; height:100%; margin:auto; z-index:9898;"></div>
 			</div>
 		</div>
-		<iframe style="display:none;" name="back" id="back"></iframe>
 		<div id="main">
 			<a title="" href="index.php">
-				<div class="ti" style="background:url(&#39;use/&#39;); background-size:cover;"></div>
+				<div class="ti" style="background:url('use/'); background-size:cover;"></div>
 				<!--標題-->
 			</a>
 			<div id="ms">
@@ -69,7 +68,7 @@ include "./api/base.php";
 						<tbody>
 							<tr>
 								<td style="width:70%;font-weight:800; border:#333 1px solid; border-radius:3px;" class="cent"><a href="?do=admin" style="color:#000; text-decoration:none;">後台管理區</a></td>
-								<td><button onclick="document.cookie=&#39;user=&#39;;location.replace(&#39;?&#39;)" style="width:99%; margin-right:2px; height:50px;">管理登出</button></td>
+								<td><button onclick="document.cookie='user=';location.replace('?')" style="width:99%; margin-right:2px; height:50px;">管理登出</button></td>
 							</tr>
 						</tbody>
 					</table>
