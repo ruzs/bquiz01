@@ -13,6 +13,7 @@
         <?php
           $rows=$Title->all();
           foreach($rows as $row){
+            $checked=($row['sh']==1)?"checked":"";
         ?>
         <tr>
           <td width="45%">
@@ -22,7 +23,7 @@
             <input type="text" name="text[]" value="<?=$row['text']?>">
           </td>
           <td width="7%">
-            <input type="radio" name="sh" value="<?=$row['id']?>">
+            <input type="radio" name="sh" value="<?=$row['id']?>"> <?=$checked;?>>
           </td>
           <td width="7%">
             <input type="checkbox" name="del" value="<?=$row['id']?>">
