@@ -19,7 +19,8 @@ foreach ($_POST['id'] as $idx => $id) {
       case "Menu":
         break;
       default:
-        $row['text'] = $_POST['text'][$idx];
+        if(isset($_POST['text'])){
+          $row['text']=$_POST['text'][$idx];}
         $row['sh'] = (isset($_POST['sh']) && in_array($id, $_POST['sh'])) ? 1 : 0;
     }
     $$table->save($row);
@@ -27,3 +28,5 @@ foreach ($_POST['id'] as $idx => $id) {
 }
 
 to("../back.php?do=" . lcfirst($table));
+//lcfirst()=把字符串中的首字符轉換為小寫
+?>
