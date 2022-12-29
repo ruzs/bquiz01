@@ -1,6 +1,6 @@
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
   <p class="t cent botli">網站標題管理</p>
-  <form method="post" action="./api/edit_title.php">
+  <form method="post" action="./api/edit.php">
     <table width="100%">
       <tbody>
         <tr class="yel">
@@ -45,6 +45,7 @@
             <input type="button" onclick="op('#cover','#cvr','./modal/title.php')" value="新增網站標題圖片">
           </td>
           <td class="cent">
+            <input type="hidden" name="table" value="Title">
             <input type="submit" value="修改確定">
             <input type="reset" value="重置">
           </td>
