@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2022-12-29 04:08:41
+-- 產生時間： 2022-12-29 07:19:23
 -- 伺服器版本： 10.4.24-MariaDB
 -- PHP 版本： 8.1.6
 
@@ -29,10 +29,18 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `ad` (
   `id` int(11) UNSIGNED NOT NULL,
-  `img` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `text` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `sh` int(1) UNSIGNED NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- 傾印資料表的資料 `ad`
+--
+
+INSERT INTO `ad` (`id`, `text`, `sh`) VALUES
+(1, '轉知臺北教育大學與臺灣師大合辦第11屆麋研齋全國硬筆書法比賽活動A', 1),
+(2, '轉知:法務部辦理「第五屆法規知識王網路闖關競賽辦法B', 1),
+(5, '轉知:教育是人類升沉的樞紐-2013教師生命成長營C', 0);
 
 -- --------------------------------------------------------
 
@@ -139,7 +147,7 @@ CREATE TABLE `title` (
 INSERT INTO `title` (`id`, `img`, `text`, `sh`) VALUES
 (1, '01B01.jpg', '泰山科技大學校園資訊系統', 0),
 (2, '01B02.jpg', '泰山科技大學校園資訊系統', 1),
-(3, '01B03.jpg', '泰山科技大學校園資訊系統', 0),
+(3, '01B03.jpg', '泰山科技大學校園資訊', 0),
 (4, '01B04.jpg', '泰山科技大學校園資訊系統', 0);
 
 -- --------------------------------------------------------
@@ -226,7 +234,7 @@ ALTER TABLE `total`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `ad`
 --
 ALTER TABLE `ad`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `admin`
