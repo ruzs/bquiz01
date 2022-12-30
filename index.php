@@ -21,8 +21,8 @@ include "./api/base.php";
 		</div>
 	</div>
 	<div id="main">
-		<a title="" href="index.php">
-			<div class="ti" style="background:url('use/'); background-size:cover;"></div>
+	<a title="<?=$Title->find(['sh'=>1])['text'];?>" href="index.php">
+			<div class="ti" style="background:url('upload/<?=$Title->find(['sh'=>1])['img'];?>'); background-size:cover;"></div>
 			<!--標題-->
 		</a>
 		<div id="ms">
@@ -32,12 +32,11 @@ include "./api/base.php";
 					<span class="t botli">主選單區</span>
 				</div>
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
-					<span class="t">進站總人數 :
-						1 </span>
+					<span class="t">進站總人數 :<?=$Total->find(1)['total'];?> </span>
 				</div>
 			</div>
 			<?php
-			 	$do=$_GET['do']??'home';
+			  $do=$_GET['do']??'home';
 				$file="./front/".$do.".php";
 				if(file_exists($file)){
 					include $file;
