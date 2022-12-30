@@ -123,6 +123,7 @@ $Image=new DB('image');
 $News=new DB('news');
 $Admin=new DB('admin');
 $Menu=new DB('menu');
+$Total=new DB('total');
 // $db=new DB('bottom');
 // $bot=$db->find(1);
 // print_r($bot);
