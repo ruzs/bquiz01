@@ -41,8 +41,15 @@
       </script>
     </div>
   </div>
-  <div style="width:95%; padding:2px; height:190px; margin-top:10px; padding:5px 10px 5px 10px; border:#0C3 dashed 3px; position:relative;overflow-y:scroll;">
+  <div style="width:95%; padding:2px; height:190px; margin-top:10px; padding:5px 10px 5px 10px; border:#0C3 dashed 3px; position:relative;">
     <span class="t botli">最新消息區
+      <?php
+      if($News->count(['sh'=>1])>5){
+        echo "<a href='?do=news' style='float:right'>";
+        echo "More...";
+        echo "</a>";
+      }
+      ?>
     </span>
     <ul class="ssaa" style="list-style-type:decimal;">
     <?php
@@ -51,7 +58,7 @@
       //   echo $new['text'];
       //   echo "<br><br>";
       // }
-      $news=$News->all(['sh'=>1]);
+      $news=$News->all(['sh'=>1]," limit 5");
       foreach($news as $n){
         echo "<li>";
         echo mb_substr($n['text'],0,25)."...";
