@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2022-12-29 09:30:31
+-- 產生時間： 2022-12-30 06:40:14
 -- 伺服器版本： 10.4.24-MariaDB
 -- PHP 版本： 8.1.6
 
@@ -78,7 +78,7 @@ CREATE TABLE `bottom` (
 --
 
 INSERT INTO `bottom` (`id`, `bottom`, `price`) VALUES
-(1, '2022 科技大學版權所有', 200),
+(1, '2022 泰山大學 版權所有', 200),
 (2, '2023 科技大學版權所有', 300);
 
 -- --------------------------------------------------------
@@ -117,6 +117,19 @@ CREATE TABLE `menu` (
   `sh` int(1) UNSIGNED NOT NULL DEFAULT 1,
   `parent` int(11) UNSIGNED NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- 傾印資料表的資料 `menu`
+--
+
+INSERT INTO `menu` (`id`, `name`, `href`, `sh`, `parent`) VALUES
+(1, '網站首頁', 'index.php', 1, 0),
+(2, '管理登入', '?do=login', 1, 0),
+(4, 'aaaa', 'aaaa', 1, 2),
+(8, 'bbb', 'ccc', 1, 2),
+(9, '132', '456', 1, 7),
+(10, 'abc', 'def', 1, 7),
+(11, 'zxc', 'asd', 1, 7);
 
 -- --------------------------------------------------------
 
@@ -186,9 +199,9 @@ CREATE TABLE `title` (
 
 INSERT INTO `title` (`id`, `img`, `text`, `sh`) VALUES
 (1, '01B01.jpg', '泰山科技大學校園資', 0),
-(2, '01B02.jpg', '泰山科技大學校園', 1),
+(2, '01B02.jpg', '泰山科技大學校園', 0),
 (3, '01B03.jpg', '泰山科技大學校園資訊', 0),
-(4, '01B04.jpg', '泰山科技大學校園資訊系統', 0);
+(4, '01B04.jpg', '泰山科技大學校園資訊系統', 1);
 
 -- --------------------------------------------------------
 
@@ -206,7 +219,7 @@ CREATE TABLE `total` (
 --
 
 INSERT INTO `total` (`id`, `total`) VALUES
-(1, 1);
+(1, 20);
 
 --
 -- 已傾印資料表的索引
@@ -298,7 +311,7 @@ ALTER TABLE `image`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `mvim`
