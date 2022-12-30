@@ -90,15 +90,15 @@ class DB{
           $sql="select $math($col) from $this->table ";
     }
 
-    if(isset($arg[1])){
-        if(is_array($arg[1])){
-            $tmp=$this->arrayToSqlArray($arg[1]);
+    if(isset($con)){
+        if(is_array($con)){
+            $tmp=$this->arrayToSqlArray($con);
             $sql=$sql . " where " .  join(" && ",$tmp);
         }else{
-            $sql=$sql . $arg[1];
+            $sql=$sql . $con;
         }
     }
-    //echo $sql;
+    // echo $sql;
     return $this->pdo->query($sql)->fetchColumn();
   }
 }

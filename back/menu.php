@@ -10,6 +10,7 @@
           <td width="10%">次選單數</td>
           <td width="10%">顯示</td>
           <td width="10%">刪除</td>
+          <td width="10%">次</td>
         </tr>
         <?php
           $rows = $Menu->all(["parent"=>0]);
@@ -23,7 +24,7 @@
           <td>
             <input type="text" name="href[]" value="<?= $row['href']; ?>" style="width:95%">
           </td>
-          <td></td>
+          <td><?=$Menu->count(['parent'=>$row['id']]);?></td>
           <td>
             <input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?=$checked;?>>
           </td>
@@ -31,7 +32,7 @@
             <input type="checkbox" name="del[]" value="<?= $row['id']; ?>" >
           </td>
           <td>
-            <input type="button" value="編輯次選單" onclick="op('#cover','#cvr','./modal/submenu.php')">
+            <input type="button" value="編輯次選單" onclick="op('#cover','#cvr','./modal/submenu.php?id=<?=$row['id'];?>')">
           </td>
           <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
         </tr>
