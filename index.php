@@ -21,8 +21,8 @@ include "./api/base.php";
 		</div>
 	</div>
 	<div id="main">
-	<a title="<?=$Title->find(['sh'=>1])['text'];?>" href="index.php">
-			<div class="ti" style="background:url('upload/<?=$Title->find(['sh'=>1])['img'];?>'); background-size:cover;"></div>
+		<a title="<?= $Title->find(['sh' => 1])['text']; ?>" href="index.php">
+			<div class="ti" style="background:url('upload/<?= $Title->find(['sh' => 1])['img']; ?>'); background-size:cover;"></div>
 			<!--標題-->
 		</a>
 		<div id="ms">
@@ -30,28 +30,61 @@ include "./api/base.php";
 				<div id="menuput" class="dbor">
 					<!--主選單放此-->
 					<span class="t botli">主選單區</span>
+					<?php
+					$mains = $Menu->all(['sh' => 1, 'parent' => 0]);
+					foreach ($mains as $main) {
+						echo "<div class='mainmu'>";
+						echo 	"<a href='{$main['href']}'>";
+						echo 		$main['name'];
+						echo 	"</a>";
+						echo 	"<div class='mw' style='display:none'>";
+						if ($Menu->count(['parent' => $main['id']]) > 0) {
+							$subs = $Menu->all(['parent' => $main['id']]);
+							foreach ($subs as $sub) {
+								echo "<div class='mainmu2'>";
+								echo 	"<a href='{$sub['href']}'>";
+								echo 		$sub['name'];
+								echo 	"</a>";
+								echo "</div>";
+							}
+						}
+						echo 	"</div>";
+						echo "</div>";
+					}
+					?>
 				</div>
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
-					<span class="t">進站總人數 :<?=$Total->find(1)['total'];?> </span>
+					<span class="t">進站總人數 :<?= $Total->find(1)['total']; ?> </span>
 				</div>
 			</div>
 			<?php
-			  $do=$_GET['do']??'home';
-				$file="./front/".$do.".php";
-				if(file_exists($file)){
-					include $file;
-				}else{
-					include ("./front/home.php");
-				};
+			$do = $_GET['do'] ?? 'home';
+			$file = "./front/" . $do . ".php";
+			if (file_exists($file)) {
+				include $file;
+			} else {
+				include("./front/home.php");
+			};
 			?>
 			<div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
 				<!--右邊-->
 				<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('?do=admin')">管理登入</button>
 				<div style="width:89%; height:480px;" class="dbor">
 					<span class="t botli">校園映象區</span>
+
+					<?php
+					$rows = $Image->all();
+					foreach ($rows as $row) {
+						$checked = ($row['sh'] == 1) ? "checked" : "";
+					?>
+						<img src="./upload/<?= $row['img']; ?>" style="width:100%;height:100px">
+					<?php
+					}
+					?>
 					<script>
 						var nowpage = 0,
 							num = 0;
+
 						function pp(x) {
 							var s, t;
 							if (x == 1 && nowpage - 1 >= 0) {
@@ -74,10 +107,10 @@ include "./api/base.php";
 		<div style="clear:both;"></div>
 		<div style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
 			<span class="t" style="line-height:123px;">
-			<?=
+				<?=
 				$Bottom->find(1)['bottom'];
-			?>
-		</span>
+				?>
+			</span>
 		</div>
 	</div>
 

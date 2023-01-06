@@ -9,7 +9,10 @@
 			//echo q("SELECT *,GROUP_CONCAT('---',`text`) as 'ad' FROM `ad` where sh=1 group by sh;")[0]['ad'];
 		; ?>
 	</marquee>
-	<div style="height:32px; display:block;"></div>
+	<div style="height:32px; display:block;">
+	</div>
+	<h3 style="text-align:center;">更多最新消息</h3>
+	<hr style="margin:0px 15px;">
 	<!--正中央-->
 	<?php
 	$all = $News->count(['sh' => 1]);
@@ -56,7 +59,6 @@
 <script>
 	$(".sswww").hover(
 		function() {
-			console.log($(this).offset())
 			$("#alt").html("<pre>" + $(this).children(".all").html() + "</pre>").css({
 				"top": $(this).offset().top - 50
 			})
