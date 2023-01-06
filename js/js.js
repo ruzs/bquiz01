@@ -3,7 +3,7 @@ $(document).ready(function(e) {
     $(".mainmu").mouseover(
 		function()
 		{
-			$(this).children(".mw").stop().show()
+			$(this).children(".mw").show()
 		}
 	)
 	$(".mainmu").mouseout(
