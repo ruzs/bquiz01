@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2022-12-30 06:40:14
+-- 產生時間： 2023-02-10 02:51:55
 -- 伺服器版本： 10.4.24-MariaDB
 -- PHP 版本： 8.1.6
 
@@ -38,8 +38,8 @@ CREATE TABLE `ad` (
 --
 
 INSERT INTO `ad` (`id`, `text`, `sh`) VALUES
-(1, '轉知臺北教育大學與臺灣師大合辦第11屆麋研齋全國硬筆書法比賽活動A', 1),
-(2, '轉知:法務部辦理「第五屆法規知識王網路闖關競賽辦法B', 1),
+(1, '轉知臺北教育大學與臺灣師大合辦第11屆麋研齋全國硬筆書法比賽活動A', 0),
+(2, '轉知:法務部辦理「第五屆法規知識王網路闖關競賽辦法B', 0),
 (5, '轉知:教育是人類升沉的樞紐-2013教師生命成長營C', 1);
 
 -- --------------------------------------------------------
@@ -102,7 +102,11 @@ INSERT INTO `image` (`id`, `img`, `text`, `sh`) VALUES
 (1, '01D01.jpg', '', 1),
 (2, '01D02.jpg', '', 1),
 (3, '01D03.jpg', '', 1),
-(5, '01D04.jpg', '', 1);
+(5, '01D04.jpg', '', 1),
+(6, '01D05.jpg', '', 1),
+(7, '01D06.jpg', '', 1),
+(8, '01D07.jpg', '', 1),
+(9, '01D08.jpg', '', 1);
 
 -- --------------------------------------------------------
 
@@ -129,7 +133,9 @@ INSERT INTO `menu` (`id`, `name`, `href`, `sh`, `parent`) VALUES
 (8, 'bbb', 'ccc', 1, 2),
 (9, '132', '456', 1, 7),
 (10, 'abc', 'def', 1, 7),
-(11, 'zxc', 'asd', 1, 7);
+(11, 'zxc', 'asd', 1, 7),
+(12, '1111', 'back.php', 1, 1),
+(13, '222', '222', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -219,7 +225,7 @@ CREATE TABLE `total` (
 --
 
 INSERT INTO `total` (`id`, `total`) VALUES
-(1, 20);
+(1, 29);
 
 --
 -- 已傾印資料表的索引
@@ -305,13 +311,13 @@ ALTER TABLE `bottom`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `image`
 --
 ALTER TABLE `image`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `mvim`
